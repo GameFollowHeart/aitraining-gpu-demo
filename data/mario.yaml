@@ -1,0 +1,9 @@
+train: D:/_codingWorkspace/spidervideo_py/ai_traning_for_game/fc_mario_game/data/train/images
+val: D:/_codingWorkspace/spidervideo_py/ai_traning_for_game/fc_mario_game/data/val/images
+test: D:/_codingWorkspace/spidervideo_py/ai_traning_for_game/fc_mario_game/data/test/images
+
+# number of classes
+nc: 3
+
+# class names
+names: ['player1_1','player1_r','player1_end']

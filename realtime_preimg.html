@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>实时图像更新</title>
+    <style>
+        #image-display {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>实时图像更新</h1>
+    <div>predict[N]: <input id="predictinput" value="2" type="number"/></div>
+    <div>predict image: <input id="predictimg" value="image0.jpg" type="text"/></div>
+    <img id="image-display" src="">
+    <script>
+        const imageElement = document.getElementById('image-display');
+        const predictInput = document.getElementById('predictinput');
+        const predictImg = document.getElementById('predictimg');
+
+        function updateImage() {
+            const currentTime = new Date().getTime();
+            // 由于每次运行检测脚本，对于输出的图片路径会变
+            // 这里每次看图片时，需要修改成需要实时监看的图片路径（即 predict1 修改成 predict2 或 predict3 或 predict[N]）
+            const pi = predictInput.value || '2'
+            const pi_img = predictImg.value || 'image0.jpg'
+            imageElement.src = `D:\\_codingWorkspace\\spidervideo_py\\ai_traning_for_game\\fc_mario_game\\runs\\detect\\predict${pi}\\${pi_img}?t=${currentTime}`;
+            requestAnimationFrame(updateImage);
+        }
+
+        updateImage();
+    </script>
+</body>
+</html>
